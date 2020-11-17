@@ -1,0 +1,28 @@
+#-----------------------------------------------------
+# Some usefull instructions...
+#
+BIBLIO=biblio.bib
+#-----------------------------------------------------
+
+all: README.html README.pdf
+
+README.html: README.adoc
+	asciidoctor -a toc=left README.adoc
+
+README.pdf: README.adoc
+	asciidoctor-pdf -a backend-pdf README.adoc
+
+todos: 
+	@echo "========================================"
+	@echo "==> Generating the list of today's totos"
+	grep "^fix " README.adoc 
+
+check: 
+	@echo "========================================"
+	@echo "==> checking the fix "
+	ruby tests/testfix0.rb README.adoc 
+	ruby tests/testfix11.rb 
+
+clean:
+	rm -rf target
+	rm -rf build
