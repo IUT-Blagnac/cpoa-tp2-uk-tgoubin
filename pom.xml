@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.blagnac.cpoa</groupId>
-    <artifactId>TP2</artifactId>
+    <artifactId>tp2-correction</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <junit.version>4.13</junit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>13</maven.compiler.release>
+        <!--maven.compiler.release>13</maven.compiler.release-->
+        <cucumber.version>6.8.1</cucumber.version>
     </properties>
 
     <dependencies>
@@ -27,6 +28,18 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -40,28 +53,6 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <executions>
-                <execution>
-                    <id>fix0</id>
-                    <phase>install</phase>
-                    <goals>
-                    <goal>exec</goal>
-                    </goals>
-                    <configuration>
-                    <executable>ruby</executable>
-                    <workingDirectory>tests</workingDirectory>
-                    <arguments>
-                        <argument>testfix0.rb</argument>
-                        <argument>../README.adoc</argument>
-                    </arguments>
-                    </configuration>
-                </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
