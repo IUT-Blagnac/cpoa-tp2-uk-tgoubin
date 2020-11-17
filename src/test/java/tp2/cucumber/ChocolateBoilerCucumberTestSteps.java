@@ -11,11 +11,12 @@ public class ChocolateBoilerCucumberTestSteps {
 
 	private ChocolateBoiler boiler;
 
-	@Given("I create a chocolate boiler")
+	@Given("I get the chocolate boiler")
 	public void i_create_a_chocolate_boiler() {
 		System.out.println("Creating a chocolate boiler");
 		boiler = ChocolateBoiler.getInstance();
 		assertTrue(boiler instanceof ChocolateBoiler);
+		boiler.reset();
 	}
 
 	@Then("I fill the boiler")

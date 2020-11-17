@@ -7,8 +7,7 @@ public class ChocolateBoiler {
 	private static ChocolateBoiler uniqueInstance;
 
 	private ChocolateBoiler() {
-		empty = true;
-		boiled = false;
+		reset();
 	}
 
 	public static synchronized ChocolateBoiler getInstance() {
@@ -18,6 +17,11 @@ public class ChocolateBoiler {
 		return uniqueInstance;
 	}
 
+	public void reset() {
+		empty = true;
+		boiled = false;
+	}
+	
 	public void fill() {
 		if (isEmpty()) {
 			empty = false;

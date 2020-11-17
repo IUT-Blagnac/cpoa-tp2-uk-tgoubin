@@ -11,8 +11,8 @@ public class ChocolateBoilerTest {
 
 	@Test
 	public void test1() {
-		
 		ChocolateBoiler boiler = ChocolateBoiler.getInstance();
+		boiler.reset();
 		
 		assertFalse(boiler.isBoiled());
 		assertTrue(boiler.isEmpty());
@@ -20,7 +20,6 @@ public class ChocolateBoilerTest {
 
 	@Test
 	public void test2() {
-		
 		ChocolateBoiler boiler = ChocolateBoiler.getInstance();
 		boiler.fill();
 		
@@ -30,7 +29,6 @@ public class ChocolateBoilerTest {
 
 	@Test
 	public void test3() {
-		
 		ChocolateBoiler boiler = ChocolateBoiler.getInstance();
 		boiler.fill();
 		boiler.boil();
@@ -41,7 +39,6 @@ public class ChocolateBoilerTest {
 
 	@Test
 	public void test4() {
-		
 		ChocolateBoiler boiler = ChocolateBoiler.getInstance();
 		boiler.fill();
 		boiler.boil();
